@@ -1,25 +1,52 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import ComponentA from "./ComponentA";
+import TimerOne from "./Timer/TimerOne";
+import ErrorBoundary from "./ErrorBoundary";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+
+
+  //Timer App
+   /*
+    constructor(){
+      super();
+
+      this.state={
+           timerOn:false
+      }
+    }
+
+    handleTimerOn = ()=>{
+      this.setState((prevState)=>({timerOn:!prevState.timerOn}));
+    }
+
+
+    render(){
+      return(
+        <>
+        <button onClick={this.handleTimerOn}>{this.state.timerOn ? "STOP" : "START"}</button>
+         <TimerOne timerOn={this.state.timerOn}/>
+        </>
+      );
+    }*/
+
+
+    //Example for Error Boundary
+    constructor(){
+      super();
+    }
+
+    render(){
+      return(
+      <>
+      <ErrorBoundary>
+        <ComponentA/>
+      </ErrorBoundary>
+        
+      
+      </>
+      );
+    }
 }
 
 export default App;
